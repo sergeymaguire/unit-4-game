@@ -15,7 +15,8 @@ $(document).ready(function () {
         reset();
         $("#winner").html("Wins: " + wins);
     };
-    function targetSet(){
+
+    function targetSet() {
         $("targetnumber").text((Math.floor(Math.random() * 101) + 19));
     }
     targetSet();
@@ -33,14 +34,12 @@ $(document).ready(function () {
         targetnumber = (Math.floor(Math.random() * 101) + 19);
     }
     var setLosses = function () {
-        alert("You loose try again");
+        alert("You lose try again");
         losses++;
         reset();
         $("#loser").html("Losses: " + losses);
     }
     var buttonNumbers = function (scoreAdd) {
-        // console.log(Math.floor((Math.random() * 10) + 1));
-        // console.log("crystal clicked");
         userScore = userScore + scoreAdd;
         tries++;
         console.log("userScore " + userScore);
@@ -67,16 +66,11 @@ $(document).ready(function () {
     var targetNumber = function () {
         targetnumber = (Math.floor(Math.random() * 101) + 19);
         $(".target-number").html(targetnumber);
-        console.log("target number clicked");
     }
-
-
-
-     $(".target-number").ready( function () {
+    $(".target-number").ready(function () {
         targetSet();
         targetNumber();
-      
-     })
+    })
     $("#Crystal-Blue").on("click", function () {
         buttonNumbers(blueInc);
     });
