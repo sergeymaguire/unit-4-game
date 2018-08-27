@@ -15,23 +15,24 @@ $(document).ready(function () {
         reset();
         $("#winner").html("Wins: " + wins);
     };
+
     function reset() {
         tries = 0;
-         blueInc = Math.floor((Math.random() * 12) + 1);
-         redInc = Math.floor((Math.random() * 12) + 1);
-         purpleInc = Math.floor((Math.random() * 12) + 1);
-         yellowInc = Math.floor((Math.random() * 12) + 1);
-         console.log("blueInc " + blueInc);
-         console.log("redInc " + redInc);
-         console.log("purpleInc " + purpleInc);
-         console.log("yellowInc " + yellowInc);
+        blueInc = Math.floor((Math.random() * 12) + 1);
+        redInc = Math.floor((Math.random() * 12) + 1);
+        purpleInc = Math.floor((Math.random() * 12) + 1);
+        yellowInc = Math.floor((Math.random() * 12) + 1);
+        console.log("blueInc " + blueInc);
+        console.log("redInc " + redInc);
+        console.log("purpleInc " + purpleInc);
+        console.log("yellowInc " + yellowInc);
         targetnumber = (Math.floor(Math.random() * 101) + 19);
     }
     var setLosses = function () {
         alert("You loose");
         losses++;
         reset();
-        $("#loser").html("Losses: "+ losses);
+        $("#loser").html("Losses: " + losses);
     }
     var buttonNumbers = function (scoreAdd) {
         // console.log(Math.floor((Math.random() * 10) + 1));
@@ -40,16 +41,15 @@ $(document).ready(function () {
         tries++;
         console.log("userScore " + userScore);
         console.log("targetnumber " + targetnumber);
-        if(userScore === targetnumber){
+        if (userScore === targetnumber) {
             setWins();
             userScore = 0;
-        }else
-        if(tries > 15){
+        } else
+        if (tries > 50) {
             setLosses();
             userScore = 0;
             targetnumber = (Math.floor(Math.random() * 101) + 19);
-        }
-        else if(userScore > targetnumber){
+        } else if (userScore > targetnumber) {
             setLosses();
             userScore = 0;
             targetnumber = (Math.floor(Math.random() * 101) + 19);
