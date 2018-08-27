@@ -15,6 +15,10 @@ $(document).ready(function () {
         reset();
         $("#winner").html("Wins: " + wins);
     };
+    function targetSet(){
+        $("targetnumber").text((Math.floor(Math.random() * 101) + 19));
+    }
+    targetSet();
 
     function reset() {
         tries = 0;
@@ -29,7 +33,7 @@ $(document).ready(function () {
         targetnumber = (Math.floor(Math.random() * 101) + 19);
     }
     var setLosses = function () {
-        alert("You loose");
+        alert("You loose try again");
         losses++;
         reset();
         $("#loser").html("Losses: " + losses);
@@ -43,16 +47,20 @@ $(document).ready(function () {
         console.log("targetnumber " + targetnumber);
         if (userScore === targetnumber) {
             setWins();
+            targetSet();
             userScore = 0;
+            targetNumber();
         } else
         if (tries > 50) {
             setLosses();
             userScore = 0;
-            targetnumber = (Math.floor(Math.random() * 101) + 19);
+            targetSet();
+            targetNumber();
         } else if (userScore > targetnumber) {
             setLosses();
             userScore = 0;
-            targetnumber = (Math.floor(Math.random() * 101) + 19);
+            targetSet();
+            targetNumber();
         }
         $("#totalscore").text(userScore);
     };
@@ -64,9 +72,11 @@ $(document).ready(function () {
 
 
 
-    $(".target-number").on("click", function () {
+     $(".target-number").ready( function () {
+        targetSet();
         targetNumber();
-    })
+      
+     })
     $("#Crystal-Blue").on("click", function () {
         buttonNumbers(blueInc);
     });
